@@ -1,12 +1,17 @@
-from kafka import KafkaProducer
-import json
+from confluent_kafka import Producer
 
-producer = KafkaProducer(
-    bootstrap_servers='localhost:9092', #connection to local kafka server
-    value_serializer=lambda v: json.dumps(v).encode('utf-8') #convert data into json format
-    )
+# Kafka producer configuration
+conf = {'bootstrap.servers': "localhost:9092"}  # Kafka broker address
+producer = Producer(**conf)
 
-#takes user data and sends it to the kafka topic
+def delivery_report(err, msg):
+    """ Delivery report handler called on successful or failed delivery of a message. """
+    if err is not None:
+        print(f"Message delivery failed: {err}")
+    else:
+        print(f"Message delivered to {msg.topic()} [{msg.partition()}]")
+
 def send_to_kafka(action_data):
-    producer.send('user-actions', action_data)
-    producer.flush()
+    """ Send action data to Kafka """
+    producer.produce('user-actions', key='key', value=str(action_data), callback=delivery_report)
+    producer.flush()  # Ensure the message is delivered
