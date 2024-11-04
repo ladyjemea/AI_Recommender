@@ -15,6 +15,3 @@ def send_to_kafka(action_data):
     """ Send action data to Kafka """
     producer.produce('user-actions', key='key', value=str(action_data), callback=delivery_report)
     producer.flush()  # Ensure the message is delivered
-
-## an example
-#another examples
