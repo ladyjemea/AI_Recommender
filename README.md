@@ -116,34 +116,34 @@ Set Up Kafka
 
 project-one-ai-recommender/
 │
-├── data_pipeline/                # Data ingestion and processing
-│   ├── kafka_producer.py         # Kafka producer to stream real-time data
-│   ├── kafka_consumer.py         # Kafka consumer for data ingestion
-│   └── spark_processing.py       # Spark job for data processing
+├── data_pipeline/                
+│   ├── kafka_producer.py         
+│   ├── kafka_consumer.py         
+│   └── spark_processing.py       
 │
-├── model/                        # Machine learning model
-│   ├── train_model.py            # Script to train the model
-│   ├── model.pkl                 # Trained model file
-│   └── recommender.py            # Model inference logic
+├── model/                        
+│   ├── train_model.py            
+│   ├── model.pkl                 
+│   └── recommender.py            
 │
-├── api/                          # FastAPI for serving recommendations
-│   ├── main.py                   # API endpoints
-│   ├── requirements.txt          # Python dependencies
-│   ├── Dockerfile                # Docker configuration
-│   └── tests/                    # Unit and integration tests
-│       └── test_main.py          # Test cases for API
+├── api/                          
+│   ├── main.py                   
+│   ├── requirements.txt          
+│   ├── Dockerfile                
+│   └── tests/                    
+│       └── test_main.py          
 │
-├── config/                       # Config files
-│   ├── kafka_config.yaml         # Kafka server config
-│   ├── aws_config.yaml           # AWS setup
-│   └── app_config.yaml           # Application settings
+├── config/                       
+│   ├── kafka_config.yaml         
+│   ├── aws_config.yaml           
+│   └── app_config.yaml           
 │
-├── deployment/                   # Cloud deployment scripts
-│   ├── ecs_deploy.sh             # AWS ECS deployment script
-│   ├── terraform/                # Terraform for infrastructure as code
-│       └── ecs_setup.tf          # AWS ECS setup
+├── deployment/                   
+│   ├── ecs_deploy.sh             
+│   ├── terraform/                
+│       └── ecs_setup.tf          
 │
-└── README.md                     # Project documentation
+└── README.md                     
 
 
 
